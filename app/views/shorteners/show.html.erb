@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Orig url:</b>
+  <%= @shortener.orig_url %>
+</p>
+
+<p>
+  <b>Uniuqe path:</b>
+  <%= @shortener.unique_path %>
+</p>
+
+
+<%= link_to 'Edit', edit_shortener_path(@shortener) %> |
+<%= link_to 'Back', shorteners_path %>
