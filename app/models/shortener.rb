@@ -1,7 +1,7 @@
 class Shortener < ActiveRecord::Base
   attr_accessible :orig_url, :shortened_url
   UNIQUE_PATH_LENGTH = 5
-  HOST_NAME = 'http:localhost:3002'#'http://dry-cliffs-6195.herokuapp.com'
+  HOST_NAME = 'http://dry-cliffs-6195.herokuapp.com'
   def self.generate orig_url
     shortener = find_by_orig_url orig_url
     return shortener if shortener
