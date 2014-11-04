@@ -1,4 +1,5 @@
 UrlShortener::Application.routes.draw do
+  get '/s/:unique_path', to: 'shorteners#translate'   
   resources :shorteners
 
 
@@ -51,7 +52,7 @@ UrlShortener::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'shorteners#index'
 
   # See how all your routes lay out with "rake routes"
 

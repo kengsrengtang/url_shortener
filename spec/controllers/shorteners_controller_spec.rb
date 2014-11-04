@@ -19,6 +19,9 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe ShortenersController do
+ 
+
+
 
   # This should return the minimal set of attributes required to create a valid
   # Shortener. As you add validations to Shortener, be sure to
@@ -29,6 +32,14 @@ describe ShortenersController do
   # in order to pass any filters (e.g. authentication) defined in
   # ShortenersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+
+  describe 'GET trnslate' do
+    it 'should redirect to orig_url' do
+      shortener = Shortener.create! orig_url: 'http://www.foo.com', unique_path: Shortener.shortened_url('abc') 
+      get :translate, unique_path: 'abc'
+      response.should redirect_to 'http://www.foo.com'
+    end
+  end
 
   describe "GET index" do
     it "assigns all shorteners as @shorteners" do

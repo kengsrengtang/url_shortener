@@ -80,4 +80,14 @@ class ShortenersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def translate
+    url = Shortener.shortened_url params[:unique_path]
+    su = Shortener.find_by_unique_path url
+    if su
+      redirect_to su.orig_url, :status => :moved_permanently 
+    else
+      redirect_to '/'
+    end
+  end
 end
