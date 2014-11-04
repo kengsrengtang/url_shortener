@@ -1,5 +1,5 @@
 class Shortener < ActiveRecord::Base
-  attr_accessible :orig_url, :unique_path
+  attr_accessible :orig_url, :shortened_url
   UNIQUE_PATH_LENGTH = 5
   HOST_NAME = 'http:localhost:3002'#'http://dry-cliffs-6195.herokuapp.com'
   def self.generate orig_url
@@ -8,8 +8,8 @@ class Shortener < ActiveRecord::Base
 
     begin
       unique_path = generate_random_string UNIQUE_PATH_LENGTH
-    end while find_by_unique_path unique_path
-    shortener = create orig_url: orig_url, unique_path: shortened_url(unique_path)
+    end while find_by_shortened_url unique_path
+    shortener = create orig_url: orig_url, shortened_url: shortened_url(unique_path)
     shortener
   end
 

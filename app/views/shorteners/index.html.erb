@@ -12,7 +12,7 @@
 <% @shorteners.each do |shortener| %>
   <tr>
     <td><%= shortener.orig_url %></td>
-    <td><%= shortener.unique_path %></td>
+    <td><%= shortener.shortened_url %></td>
     <td><%= link_to 'Show', shortener %></td>
     <td><%= link_to 'Edit', edit_shortener_path(shortener) %></td>
     <td><%= link_to 'Destroy', shortener, method: :delete, data: { confirm: 'Are you sure?' } %></td>

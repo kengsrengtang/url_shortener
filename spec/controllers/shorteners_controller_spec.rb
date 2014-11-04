@@ -35,8 +35,8 @@ describe ShortenersController do
 
   describe 'GET trnslate' do
     it 'should redirect to orig_url' do
-      shortener = Shortener.create! orig_url: 'http://www.foo.com', unique_path: Shortener.shortened_url('abc') 
-      get :translate, unique_path: 'abc'
+      shortener = Shortener.create! orig_url: 'http://www.foo.com', shortened_url: Shortener.shortened_url('abc') 
+      get :translate, shortened_url: 'abc'
       response.should redirect_to 'http://www.foo.com'
     end
   end

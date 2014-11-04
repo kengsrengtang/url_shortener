@@ -83,7 +83,7 @@ class ShortenersController < ApplicationController
 
   def translate
     url = Shortener.shortened_url params[:unique_path]
-    su = Shortener.find_by_unique_path url
+    su = Shortener.find_by_shortened_url url
     if su
       redirect_to su.orig_url, :status => :moved_permanently 
     else

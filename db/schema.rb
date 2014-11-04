@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141103225929) do
+ActiveRecord::Schema.define(:version => 20141104045642) do
 
   create_table "shorteners", :force => true do |t|
     t.string   "orig_url"
-    t.string   "unique_path"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "shortened_url"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "shortenters", :force => true do |t|
